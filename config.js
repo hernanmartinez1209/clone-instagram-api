@@ -13,9 +13,9 @@ const config = {
       dialect: "postgres",
       host: "localhost",
       port: 5432,
-      database: "instagram-db",
+      database: "Instagram-db",
       username: "postgres",
-      password: "root",
+      password: "node12",
       //Extra configs
       define: {
         timestamps: true,
@@ -46,9 +46,9 @@ const config = {
       dialect: "postgres",
       host: "localhost",
       port: 5432,
-      database: "instagram-db",
+      database: "Instagram-db",
       username: "postgres",
-      password: "root",
+      password: "node12",
       //Extra configs
       define: {
         timestamps: true,

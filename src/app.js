@@ -1,6 +1,7 @@
 const express = require("express")
 const cors = require('cors')
 const path = require('path')
+const swaggerUi = require("swagger-ui-express")
 require('dotenv').config()
 
 const userRouter = require('./users/users.router')
@@ -8,10 +9,13 @@ const authRouter = require('./auth/auth.router')
 const postRouter = require('./posts/posts.router')
 const followRouter = require('./follows/follows.router')
 
+
 const upload = require('./middlewares/multer.middleware')
 const db = require('./utils/database')
 const initModels = require('./models/initModels')
+const swaggerDoc = require("../swagger.json")
 const app = express()
+
 
 const PORT = process.env.PORT || 3000
 
@@ -55,7 +59,7 @@ app.post('/api/v1/add-file', upload.single('my-image') ,(req, res) => {
     res.status(200).json({message: req.file})
 })
 
-
+app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerDoc))
 app.use('/api/v1/users', userRouter)
 app.use('/api/v1/auth', authRouter)
 app.use('/api/v1/posts', postRouter)
